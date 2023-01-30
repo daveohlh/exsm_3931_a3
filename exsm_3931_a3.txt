@@ -1,0 +1,50 @@
+-- Hungry Customer --
+
+cash = $5.00
+machine_content = {chocolate_bar: $2.00, chips: $1.00, candy: $1.25, popcorn: $1.50}
+machine_inventory = {chocolate_bar: 10, chips: 5, candy: 7, popcorn: 1}
+change = $0.00
+customer_choice = ""
+
+View choices and price
+Select choice
+
+if customer_choice inventory greater than zero and customer_choice price less than cash {
+    Insert_Money
+    else 
+    make another choice or exit vending machine
+}
+
+Insert_Money:
+    While money is less than cost {
+        insert more money
+    }
+    If money entered is greater than cost {
+        retrieve change dispensed
+    }
+
+Retrieve customer_choice
+
+
+-- Machine Owner --
+
+machine_content = {chocolate_bar: $2.00, chips: $1.00, candy: $1.25, popcorn: $1.50}
+max_machine_inventory {chocolate_bar: 10, chips: 10, candy: 10, popcorn: 10}
+machine_inventory = {chocolate_bar: 10, chips: 5, candy: 7, popcorn: 1}
+min_machine_cash = $5.00
+machine_cash = $10.00
+
+Unlock machine
+Open Machine and View Machine inventory
+
+While machine_inventory is less than max_machine_inventory {
+    restock {chocolate_bar, chips, candy, popcorn}
+} 
+
+View Machine cash
+If machine_cash is greater than min_machine_cash {
+    Withdraw cash until machine_cash equals $5.00
+}
+
+Close Machine
+Lock Machine
